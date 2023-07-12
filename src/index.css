@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
 
+:root {
+  --light-grey-color: hsl(0, 0%, 86%);
+}
+
 /* global reset */
 * {
   box-sizing: border-box;
@@ -9,4 +13,10 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  font-size: 62.5%;
+  background-color: var(--light-grey-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
