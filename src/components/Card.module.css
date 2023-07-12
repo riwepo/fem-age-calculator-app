@@ -1,0 +1,13 @@
+.card {
+  --white-color: hsl(0, 0%, 100%);
+}
+
+.card {
+  width: 90vw;
+  margin: 0 auto;
+  background-color: var(--white-color);
+  border-radius: 2rem 2rem 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
