@@ -9,7 +9,7 @@ function Card() {
   return (
     <main className={classes.card}>
       <Form />
-      <Display />
+      {/* <Display /> */}
     </main>
   );
 }
