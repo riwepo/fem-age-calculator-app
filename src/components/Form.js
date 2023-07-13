@@ -1,6 +1,6 @@
 import React from "react";
 
-import buttonImg from "../../assets/images/icon-arrow.svg";
+import buttonImg from "../assets/images/icon-arrow.svg";
 
 import classes from "./Form.module.css";
 
@@ -15,8 +15,8 @@ function Form() {
         <label htmlFor="year">YEAR</label>
         <input type="text" id="year" placeholder="year" />
       </div>
+      <hr />
       <div className={classes.buttonContainer}>
-        <hr />
         <button className={classes.button}>
           <img src={buttonImg} alt="arrow" />
         </button>
