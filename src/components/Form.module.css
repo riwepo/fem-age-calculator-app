@@ -1,5 +1,6 @@
 .form {
   --smokey-grey-color: hsl(0, 1%, 44%);
+  --purple-color: hsl(259, 100%, 65%);
 }
 
 .form {
@@ -66,5 +67,16 @@
 
 .button {
   border-radius: 50%;
+  background-color: var(--purple-color);
   cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  transform: translate(0%, -50%);
+  padding: 0.5rem;
+  border: none;
+}
+
+.button img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
 }
