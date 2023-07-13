@@ -44,7 +44,8 @@
   border-radius: 0.5rem;
   border-width: thin;
   border-color: grey;
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
 }
 
 .inputsContainer input:nth-of-type(1) {
