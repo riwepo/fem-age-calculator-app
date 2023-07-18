@@ -72,12 +72,10 @@ function isValidDateInPast(currentDate, year, month, day) {
     dayIsInPast,
   };
 
-  console.log(result);
-
   return result;
 }
 
-function Form() {
+function Form({ onSubmit }) {
   const [enteredDays, setEnteredDays] = useState("");
   const [enteredDaysIsTouched, setEnteredDaysIsTouched] = useState(false);
   const [enteredDaysError, setEnteredDaysError] = useState("");
@@ -92,6 +90,16 @@ function Form() {
   //const testDate = new Date(1963, 5, 11);
   //const dateInfo = isValidDateInPast(testDate, 1963, 6, 11);
 
+  function formSumbitHandler(event) {
+    event.preventDefault();
+    const enteredDate = new Date(
+      +enteredYears,
+      +enteredMonths - 1,
+      +enteredDays
+    );
+    onSubmit(enteredDate);
+  }
+
   function updateDateStatus(year, month, day) {
     // updates the date status on the screen
     // note that month is 1 based i.e. 1 = Jan
@@ -104,7 +112,6 @@ function Form() {
       ? "Must be in the past"
       : "";
     setEnteredYearsError(yearError);
-    console.log("yearError", yearError);
     const monthError = !dateInfo.monthIsValid
       ? "Must be a valid month"
       : !dateInfo.monthIsInPast
@@ -169,7 +176,7 @@ function Form() {
   };
 
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={formSumbitHandler}>
       <div className={classes.inputsContainer}>
         <label
           htmlFor="day"
