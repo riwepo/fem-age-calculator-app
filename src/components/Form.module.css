@@ -25,18 +25,6 @@
   color: var(--smokey-grey-color);
 }
 
-.inputsContainer label:nth-of-type(1) {
-  grid-column: 1;
-}
-
-.inputsContainer label:nth-of-type(2) {
-  grid-column: 2;
-}
-
-.inputsContainer label:nth-of-type(3) {
-  grid-column: 3;
-}
-
 .inputsContainer input {
   grid-row: 2;
   min-width: 1rem;
@@ -48,16 +36,73 @@
   font-weight: 700;
 }
 
-.inputsContainer input:nth-of-type(1) {
+/* day */
+
+.inputsContainer .daylabel {
   grid-column: 1;
 }
 
-.inputsContainer input:nth-of-type(2) {
+.inputsContainer .dayLabel.dayLabelError {
+  color: red;
+}
+
+.inputsContainer .dayInput {
+  grid-column: 1;
+}
+
+.inputsContainer .dayInput.dayInputError {
+  border-color: red;
+}
+
+.inputsContainer .dayErrorMessage {
+  grid-column: 1;
+  color: red;
+}
+
+/* month */
+
+.inputsContainer .monthlabel {
   grid-column: 2;
 }
 
-.inputsContainer input:nth-of-type(3) {
+.inputsContainer .monthLabel.monthLabelError {
+  color: red;
+}
+
+.inputsContainer .monthInput {
+  grid-column: 2;
+}
+
+.inputsContainer .monthInput.monthInputError {
+  border-color: red;
+}
+
+.inputsContainer .monthErrorMessage {
+  grid-column: 2;
+  color: red;
+}
+
+/* year */
+
+.inputsContainer .yearlabel {
   grid-column: 3;
+}
+
+.inputsContainer .yearLabel.yearLabelError {
+  color: red;
+}
+
+.inputsContainer .yearInput {
+  grid-column: 3;
+}
+
+.inputsContainer .yearInput.yearInputError {
+  border-color: red;
+}
+
+.inputsContainer .yearErrorMessage {
+  grid-column: 3;
+  color: red;
 }
 
 .buttonContainer {
