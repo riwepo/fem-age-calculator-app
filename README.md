@@ -68,6 +68,8 @@ Obtaining the difference in years, months and days between two dates, which is q
 
 I learned a lot about validating multiple inputs that depend on one another.
 
+I learned how to animate a counter using useState and useEffect and a timer.
+
 ### Continued development
 
 I just want to continue to build more complicated React apps.
@@ -75,6 +77,8 @@ I just want to continue to build more complicated React apps.
 ### Useful resources
 
 - [stack overflow ](https://stackoverflow.com/questions/17732897/difference-between-two-dates-in-years-months-days-in-javascript) - A nice function to get difference between two dates that accounts for leap years. Look for the post from [mordred](https://stackoverflow.com/users/911192/mordred).
+
+- [stack overflow ](https://stackoverflow.com/questions/66490519/using-javascript-to-create-an-animated-counter-with-react-js) - Ideas to animate the counters.
 
 ## Author
 
