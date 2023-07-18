@@ -77,7 +77,7 @@ function Form() {
         <input
           type="number"
           id="day"
-          placeholder="day"
+          placeholder="DD"
           className={`${classes.dayInput} ${
             enteredDaysError !== "" ? classes.dayInputError : ""
           }`}
@@ -98,7 +98,7 @@ function Form() {
         <input
           type="number"
           id="month"
-          placeholder="month"
+          placeholder="MM"
           className={`${classes.monthInput} ${
             enteredMonthsError !== "" ? classes.monthInputError : ""
           }`}
@@ -119,7 +119,7 @@ function Form() {
         <input
           type="number"
           id="year"
-          placeholder="year"
+          placeholder="YYYY"
           className={`${classes.yearInput} ${
             enteredYearsError !== "" ? classes.yearInputError : ""
           }`}
