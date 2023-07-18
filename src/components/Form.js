@@ -75,7 +75,7 @@ function isValidDateInPast(currentDate, year, month, day) {
   return result;
 }
 
-function Form({ onSubmit }) {
+function Form({ onChange, onSubmit }) {
   const [enteredDays, setEnteredDays] = useState("");
   const [enteredDaysIsTouched, setEnteredDaysIsTouched] = useState(false);
   const [enteredDaysError, setEnteredDaysError] = useState("");
@@ -146,6 +146,7 @@ function Form({ onSubmit }) {
 
   const dayInputChangeHandler = (event) => {
     // expects empty string or string of digits
+    onChange();
     setEnteredDaysIsTouched(true);
     const trimmedValue = event.target.value.trim();
     setEnteredDays(trimmedValue);
@@ -161,6 +162,7 @@ function Form({ onSubmit }) {
 
   const monthInputChangeHandler = (event) => {
     // expects empty string or string of digits
+    onChange();
     setEnteredMonthsIsTouched(true);
     const trimmedValue = event.target.value.trim();
     setEnteredMonths(trimmedValue);
@@ -175,6 +177,8 @@ function Form({ onSubmit }) {
   };
 
   const yearInputChangeHandler = (event) => {
+    // expects empty string or string of digits
+    onChange();
     setEnteredYearsIsTouched(true);
     const trimmedValue = event.target.value.trim();
     setEnteredYears(trimmedValue);
