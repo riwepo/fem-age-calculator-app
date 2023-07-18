@@ -39,7 +39,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [solution URL](https://github.com/riwepo/fem-age-calculator-app)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [live site](https://riwepo.github.io/fem-age-calculator-app/)
 
 ## My process
 
