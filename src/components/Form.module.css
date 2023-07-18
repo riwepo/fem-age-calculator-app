@@ -1,6 +1,9 @@
 .form {
   --smokey-grey-color: hsl(0, 1%, 44%);
   --purple-color: hsl(259, 100%, 65%);
+  --black-color: black;
+  --red-color: red;
+  --grey-color: grey;
 }
 
 .form {
@@ -43,7 +46,7 @@
 }
 
 .inputsContainer .dayLabel.dayLabelError {
-  color: red;
+  color: var(--red-color);
 }
 
 .inputsContainer .dayInput {
@@ -51,12 +54,12 @@
 }
 
 .inputsContainer .dayInput.dayInputError {
-  border-color: red;
+  border-color: var(--red-color);
 }
 
 .inputsContainer .dayErrorMessage {
   grid-column: 1;
-  color: red;
+  color: var(--red-color);
 }
 
 /* month */
@@ -66,7 +69,7 @@
 }
 
 .inputsContainer .monthLabel.monthLabelError {
-  color: red;
+  color: var(--red-color);
 }
 
 .inputsContainer .monthInput {
@@ -74,12 +77,12 @@
 }
 
 .inputsContainer .monthInput.monthInputError {
-  border-color: red;
+  border-color: var(--red-color);
 }
 
 .inputsContainer .monthErrorMessage {
   grid-column: 2;
-  color: red;
+  color: var(--red-color);
 }
 
 /* year */
@@ -89,7 +92,7 @@
 }
 
 .inputsContainer .yearLabel.yearLabelError {
-  color: red;
+  color: var(--red-color);
 }
 
 .inputsContainer .yearInput {
@@ -97,12 +100,12 @@
 }
 
 .inputsContainer .yearInput.yearInputError {
-  border-color: red;
+  border-color: var(--red-color);
 }
 
 .inputsContainer .yearErrorMessage {
   grid-column: 3;
-  color: red;
+  color: var(--red-color);
 }
 
 .buttonContainer {
@@ -125,4 +128,13 @@
 .button img {
   width: 100%;
   aspect-ratio: 1 / 1;
+}
+
+.button:hover,
+.button:active {
+  background-color: var(--black-color);
+}
+
+.button:disabled {
+  background-color: var(--grey-color);
 }
