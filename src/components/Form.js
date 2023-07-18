@@ -31,45 +31,45 @@ function isValidDateInPast(currentDate, year, month, day) {
   // returns an object like
   // {
   //   yearIsValid: true,
-  //   yearIsInPast: true,
+  //   yearIsInFuture: true,
   //   monthIsValid: true,
-  //   monthIsInPast: true,
+  //   monthIsInFuture: true,
   //   dayIsValid: true,
-  //   dayIsInPast: true,
+  //   dayIsInFuture: true,
   // };
   const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth() + 1; // JsS month is ) based
   const currentDay = currentDate.getDate();
 
   const yearIsValid = year > 1900 && year < 2100;
-  const yearIsInPast = yearIsValid && year <= currentYear;
+  const yearIsInFuture = yearIsValid && year > currentYear;
 
   const monthIsValid = month > 0 && month < 12;
-  const monthIsInPast =
-    yearIsValid &&
-    monthIsValid &&
-    (year < currentYear || month <= currentMonth);
+  const monthIsInFuture =
+    yearIsValid && monthIsValid && year === currentYear && month > currentMonth;
 
   let daysInMonth = 0;
-  let dayIsValid = false;
-  let dayIsInPast = false;
+  let dayIsValid = day > 0 && day < 29;
+  let dayIsInFuture = false;
   if (yearIsValid && monthIsValid) {
     daysInMonth = new Date(year, month - 1, 0).getDate();
     dayIsValid = day > 0 && day <= daysInMonth;
-    dayIsInPast =
+    dayIsInFuture =
       yearIsValid &&
       monthIsValid &&
       dayIsValid &&
-      (year < currentYear || month < currentMonth || day <= currentDay);
+      year === currentYear &&
+      month === currentMonth &&
+      day > currentDay;
   }
 
   const result = {
     yearIsValid,
-    yearIsInPast,
+    yearIsInFuture,
     monthIsValid,
-    monthIsInPast,
+    monthIsInFuture,
     dayIsValid,
-    dayIsInPast,
+    dayIsInFuture,
   };
 
   return result;
@@ -119,19 +119,19 @@ function Form({ onSubmit }) {
     const dateInfo = isValidDateInPast(currentDate, year, month, day);
     const yearError = !dateInfo.yearIsValid
       ? "Must be a valid year"
-      : !dateInfo.yearIsInPast
+      : dateInfo.yearIsInFuture
       ? "Must be in the past"
       : "";
     setEnteredYearsError(yearError);
     const monthError = !dateInfo.monthIsValid
       ? "Must be a valid month"
-      : !dateInfo.monthIsInPast
+      : dateInfo.monthIsInFuture
       ? "Must be in the past"
       : "";
     setEnteredMonthsError(monthError);
     const dayError = !dateInfo.dayIsValid
       ? "Must be a valid day"
-      : !dateInfo.dayIsInPast
+      : dateInfo.dayIsInFuture
       ? "Must be in the past"
       : "";
     setEnteredDaysError(dayError);
