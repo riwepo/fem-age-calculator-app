@@ -175,6 +175,14 @@ function Form({ onSubmit }) {
     updateDateStatus(+trimmedValue, +enteredMonths, +enteredDays);
   };
 
+  const buttonIsEnabled =
+    enteredDaysIsTouched &&
+    !enteredDaysError &&
+    enteredMonthsIsTouched &&
+    !enteredMonthsError &&
+    enteredYearsIsTouched &&
+    !enteredYearsError;
+
   return (
     <form className={classes.form} onSubmit={formSumbitHandler}>
       <div className={classes.inputsContainer}>
@@ -252,7 +260,7 @@ function Form({ onSubmit }) {
       </div>
       <hr />
       <div className={classes.buttonContainer}>
-        <button className={classes.button}>
+        <button className={classes.button} disabled={!buttonIsEnabled}>
           <img src={buttonImg} alt="arrow" />
         </button>
       </div>
