@@ -6,9 +6,12 @@ import Display from "./Display";
 import classes from "./Card.module.css";
 
 function Card() {
+  function onDateEntered(date) {
+    console.log(date);
+  }
   return (
     <main className={classes.card}>
-      <Form />
+      <Form onSubmit={onDateEntered} />
       {/* <Display /> */}
     </main>
   );
