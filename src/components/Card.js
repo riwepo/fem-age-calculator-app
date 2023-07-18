@@ -6,15 +6,17 @@ import Display from "./Display";
 import classes from "./Card.module.css";
 
 function Card() {
-  const [enteredDate, setEnteredDate] = useState(null);
-  function onDateEntered(date) {
-    console.log(date);
-    setEnteredDate(date);
+  const [submittedDate, setSubmittedDate] = useState(null);
+  function onDateChange() {
+    setSubmittedDate(null);
+  }
+  function onDateSubmitted(date) {
+    setSubmittedDate(date);
   }
   return (
     <main className={classes.card}>
-      <Form onSubmit={onDateEntered} />
-      <Display date={enteredDate} />
+      <Form onChange={onDateChange} onSubmit={onDateSubmitted} />
+      <Display date={submittedDate} />
     </main>
   );
 }
