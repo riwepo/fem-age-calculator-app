@@ -74,7 +74,7 @@ I just want to continue to build more complicated React apps.
 
 ### Useful resources
 
-- [stack overflow ](https://stackoverflow.com/questions/17732897/difference-between-two-dates-in-years-months-days-in-javascript) - A nice function to get difference between two dates that accounts for leap years.
+- [stack overflow ](https://stackoverflow.com/questions/17732897/difference-between-two-dates-in-years-months-days-in-javascript) - A nice function to get difference between two dates that accounts for leap years. Look for the post from [mordred](https://stackoverflow.com/users/911192/mordred).
 
 ## Author
 
