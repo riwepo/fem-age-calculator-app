@@ -192,85 +192,87 @@ function Form({ onChange, onSubmit }) {
 
   return (
     <form className={classes.form} onSubmit={formSumbitHandler}>
-      <div className={classes.inputsContainer}>
-        <label
-          htmlFor="day"
-          className={`${classes.dayLabel} ${
-            enteredDaysError !== "" ? classes.dayLabelError : ""
-          }`}
-        >
-          DAY
-        </label>
-        <input
-          type="number"
-          min={1}
-          max={31}
-          value={enteredDays}
-          id="day"
-          placeholder="DD"
-          className={`${classes.dayInput} ${
-            enteredDaysError !== "" ? classes.dayInputError : ""
-          }`}
-          onChange={dayInputChangeHandler}
-          onKeyDown={numericInputKeyHandler}
-        />
-        {enteredDaysError !== "" && (
-          <p className={classes.dayErrorMessage}>{enteredDaysError}</p>
-        )}
+      <div className={classes.container}>
+        <div className={classes.inputsContainer}>
+          <label
+            htmlFor="day"
+            className={`${classes.dayLabel} ${
+              enteredDaysError !== "" ? classes.dayLabelError : ""
+            }`}
+          >
+            DAY
+          </label>
+          <input
+            type="number"
+            min={1}
+            max={31}
+            value={enteredDays}
+            id="day"
+            placeholder="DD"
+            className={`${classes.dayInput} ${
+              enteredDaysError !== "" ? classes.dayInputError : ""
+            }`}
+            onChange={dayInputChangeHandler}
+            onKeyDown={numericInputKeyHandler}
+          />
+          {enteredDaysError !== "" && (
+            <p className={classes.dayErrorMessage}>{enteredDaysError}</p>
+          )}
 
-        <label
-          htmlFor="month"
-          className={`${classes.monthLabel} ${
-            enteredMonthsError !== "" ? classes.monthLabelError : ""
-          }`}
-        >
-          MONTH
-        </label>
-        <input
-          type="number"
-          min={1}
-          max={12}
-          value={enteredMonths}
-          id="month"
-          placeholder="MM"
-          className={`${classes.monthInput} ${
-            enteredMonthsError !== "" ? classes.monthInputError : ""
-          }`}
-          onChange={monthInputChangeHandler}
-          onKeyDown={numericInputKeyHandler}
-        />
-        {enteredMonthsError !== "" && (
-          <p className={classes.monthErrorMessage}>{enteredMonthsError}</p>
-        )}
+          <label
+            htmlFor="month"
+            className={`${classes.monthLabel} ${
+              enteredMonthsError !== "" ? classes.monthLabelError : ""
+            }`}
+          >
+            MONTH
+          </label>
+          <input
+            type="number"
+            min={1}
+            max={12}
+            value={enteredMonths}
+            id="month"
+            placeholder="MM"
+            className={`${classes.monthInput} ${
+              enteredMonthsError !== "" ? classes.monthInputError : ""
+            }`}
+            onChange={monthInputChangeHandler}
+            onKeyDown={numericInputKeyHandler}
+          />
+          {enteredMonthsError !== "" && (
+            <p className={classes.monthErrorMessage}>{enteredMonthsError}</p>
+          )}
 
-        <label
-          htmlFor="year"
-          className={`${classes.yearLabel} ${
-            enteredYearsError !== "" ? classes.yearLabelError : ""
-          }`}
-        >
-          YEAR
-        </label>
-        <input
-          type="number"
-          id="year"
-          placeholder="YYYY"
-          className={`${classes.yearInput} ${
-            enteredYearsError !== "" ? classes.yearInputError : ""
-          }`}
-          onChange={yearInputChangeHandler}
-          onKeyDown={numericInputKeyHandler}
-        />
-        {enteredYearsError !== "" && (
-          <p className={classes.yearErrorMessage}>{enteredYearsError}</p>
-        )}
+          <label
+            htmlFor="year"
+            className={`${classes.yearLabel} ${
+              enteredYearsError !== "" ? classes.yearLabelError : ""
+            }`}
+          >
+            YEAR
+          </label>
+          <input
+            type="number"
+            id="year"
+            placeholder="YYYY"
+            className={`${classes.yearInput} ${
+              enteredYearsError !== "" ? classes.yearInputError : ""
+            }`}
+            onChange={yearInputChangeHandler}
+            onKeyDown={numericInputKeyHandler}
+          />
+          {enteredYearsError !== "" && (
+            <p className={classes.yearErrorMessage}>{enteredYearsError}</p>
+          )}
+        </div>
+        <div className={classes.buttonContainer}>
+          <button className={classes.button} disabled={!submitIsEnabled}>
+            <img src={buttonImg} alt="arrow" />
+          </button>
+        </div>
       </div>
       <hr />
-      <div className={classes.buttonContainer}>
-        <button className={classes.button} disabled={!submitIsEnabled}>
-          <img src={buttonImg} alt="arrow" />
-        </button>
-      </div>
     </form>
   );
 }
