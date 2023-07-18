@@ -90,8 +90,19 @@ function Form({ onSubmit }) {
   //const testDate = new Date(1963, 5, 11);
   //const dateInfo = isValidDateInPast(testDate, 1963, 6, 11);
 
+  const submitIsEnabled =
+    enteredDaysIsTouched &&
+    !enteredDaysError &&
+    enteredMonthsIsTouched &&
+    !enteredMonthsError &&
+    enteredYearsIsTouched &&
+    !enteredYearsError;
+
   function formSumbitHandler(event) {
     event.preventDefault();
+    if (!submitIsEnabled) {
+      return;
+    }
     const enteredDate = new Date(
       +enteredYears,
       +enteredMonths - 1,
@@ -175,14 +186,6 @@ function Form({ onSubmit }) {
     updateDateStatus(+trimmedValue, +enteredMonths, +enteredDays);
   };
 
-  const buttonIsEnabled =
-    enteredDaysIsTouched &&
-    !enteredDaysError &&
-    enteredMonthsIsTouched &&
-    !enteredMonthsError &&
-    enteredYearsIsTouched &&
-    !enteredYearsError;
-
   return (
     <form className={classes.form} onSubmit={formSumbitHandler}>
       <div className={classes.inputsContainer}>
@@ -260,7 +263,7 @@ function Form({ onSubmit }) {
       </div>
       <hr />
       <div className={classes.buttonContainer}>
-        <button className={classes.button} disabled={!buttonIsEnabled}>
+        <button className={classes.button} disabled={!submitIsEnabled}>
           <img src={buttonImg} alt="arrow" />
         </button>
       </div>
