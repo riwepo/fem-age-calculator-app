@@ -44,7 +44,7 @@ function isValidDateInPast(currentDate, year, month, day) {
   const yearIsValid = year > 1900 && year < 2100;
   const yearIsInFuture = yearIsValid && year > currentYear;
 
-  const monthIsValid = month > 0 && month < 12;
+  const monthIsValid = month > 0 && month <= 12;
   const monthIsInFuture =
     yearIsValid && monthIsValid && year === currentYear && month > currentMonth;
 
