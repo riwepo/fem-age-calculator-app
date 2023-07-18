@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/fem-age-calculator-app/static/css/main.282a72c2.css",
-    "main.js": "/fem-age-calculator-app/static/js/main.9948c0f9.js",
+    "main.css": "/fem-age-calculator-app/static/css/main.a9477298.css",
+    "main.js": "/fem-age-calculator-app/static/js/main.9d48c980.js",
     "static/js/787.1715cc32.chunk.js": "/fem-age-calculator-app/static/js/787.1715cc32.chunk.js",
     "index.html": "/fem-age-calculator-app/index.html",
     "static/media/icon-arrow.svg": "/fem-age-calculator-app/static/media/icon-arrow.76e952b1b427b84b83bd01f2f4822499.svg",
-    "main.282a72c2.css.map": "/fem-age-calculator-app/static/css/main.282a72c2.css.map",
-    "main.9948c0f9.js.map": "/fem-age-calculator-app/static/js/main.9948c0f9.js.map",
+    "main.a9477298.css.map": "/fem-age-calculator-app/static/css/main.a9477298.css.map",
+    "main.9d48c980.js.map": "/fem-age-calculator-app/static/js/main.9d48c980.js.map",
     "787.1715cc32.chunk.js.map": "/fem-age-calculator-app/static/js/787.1715cc32.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.282a72c2.css",
-    "static/js/main.9948c0f9.js"
+    "static/css/main.a9477298.css",
+    "static/js/main.9d48c980.js"
   ]
 }
