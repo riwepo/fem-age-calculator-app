@@ -26,6 +26,57 @@ function addOrRemoveLeadingZero(trimmedChars) {
   return trimmedChars;
 }
 
+function isValidDateInPast(currentDate, year, month, day) {
+  // note that month and day are 1 based i.e. 1 = Jan, 1 = first of month
+  // returns an object like
+  // {
+  //   yearIsValid: true,
+  //   yearIsInPast: true,
+  //   monthIsValid: true,
+  //   monthIsInPast: true,
+  //   dayIsValid: true,
+  //   dayIsInPast: true,
+  // };
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth() + 1; // JsS month is ) based
+  const currentDay = currentDate.getDate();
+
+  const yearIsValid = year > 1900 && year < 2100;
+  const yearIsInPast = yearIsValid && year <= currentYear;
+
+  const monthIsValid = month > 0 && month < 12;
+  const monthIsInPast =
+    yearIsValid &&
+    monthIsValid &&
+    (year < currentYear || month <= currentMonth);
+
+  let daysInMonth = 0;
+  let dayIsValid = false;
+  let dayIsInPast = false;
+  if (yearIsValid && monthIsValid) {
+    daysInMonth = new Date(year, month - 1, 0).getDate();
+    dayIsValid = day > 0 && day <= daysInMonth;
+    dayIsInPast =
+      yearIsValid &&
+      monthIsValid &&
+      dayIsValid &&
+      (year < currentYear || month < currentMonth || day <= currentDay);
+  }
+
+  const result = {
+    yearIsValid,
+    yearIsInPast,
+    monthIsValid,
+    monthIsInPast,
+    dayIsValid,
+    dayIsInPast,
+  };
+
+  console.log(result);
+
+  return result;
+}
+
 function Form() {
   const [enteredDays, setEnteredDays] = useState("");
   const [enteredDaysIsTouched, setEnteredDaysIsTouched] = useState(false);
@@ -36,6 +87,37 @@ function Form() {
   const [enteredYears, setEnteredYears] = useState("");
   const [enteredYearsIsTouched, setEnteredYearsIsTouched] = useState(false);
   const [enteredYearsError, setEnteredYearsError] = useState("");
+
+  // test
+  //const testDate = new Date(1963, 5, 11);
+  //const dateInfo = isValidDateInPast(testDate, 1963, 6, 11);
+
+  function updateDateStatus(year, month, day) {
+    // updates the date status on the screen
+    // note that month is 1 based i.e. 1 = Jan
+    // and day is 1 based i.e. 0 = first of month
+    const currentDate = new Date();
+    const dateInfo = isValidDateInPast(currentDate, year, month, day);
+    const yearError = !dateInfo.yearIsValid
+      ? "Must be a valid year"
+      : !dateInfo.yearIsInPast
+      ? "Must be in the past"
+      : "";
+    setEnteredYearsError(yearError);
+    console.log("yearError", yearError);
+    const monthError = !dateInfo.monthIsValid
+      ? "Must be a valid month"
+      : !dateInfo.monthIsInPast
+      ? "Must be in the past"
+      : "";
+    setEnteredMonthsError(monthError);
+    const dayError = !dateInfo.dayIsValid
+      ? "Must be a valid day"
+      : !dateInfo.dayIsInPast
+      ? "Must be in the past"
+      : "";
+    setEnteredDaysError(dayError);
+  }
 
   const numericInputKeyHandler = (event) => {
     // ignores non numeric keys
@@ -53,16 +135,10 @@ function Form() {
       setEnteredDaysError("This field is required");
       return;
     }
-    const numericValue = +trimmedValue;
-    console.log(numericValue);
-    if (numericValue < 1) {
-      setEnteredDaysError("Must be a valid day");
-      return;
-    }
 
     setEnteredDays(addOrRemoveLeadingZero(trimmedValue));
 
-    setEnteredDaysError("");
+    updateDateStatus(+enteredYears, +enteredMonths, +trimmedValue);
   };
 
   const monthInputChangeHandler = (event) => {
@@ -74,32 +150,22 @@ function Form() {
       setEnteredMonthsError("This field is required");
       return;
     }
-    const numericValue = +trimmedValue;
-    console.log(numericValue);
-    if (numericValue < 1 || numericValue > 12) {
-      setEnteredMonthsError("Must be a valid month");
-      return;
-    }
 
     setEnteredMonths(addOrRemoveLeadingZero(trimmedValue));
 
-    setEnteredMonthsError("");
+    updateDateStatus(+enteredYears, +trimmedValue, +enteredDays);
   };
 
   const yearInputChangeHandler = (event) => {
     setEnteredYearsIsTouched(true);
-    const value = event.target.value;
-    if (value.trim() === "") {
+    const trimmedValue = event.target.value.trim();
+    setEnteredYears(trimmedValue);
+    if (trimmedValue === "") {
       setEnteredYearsError("This field is required");
       return;
     }
-    const numericValue = +value;
-    if (numericValue < 1) {
-      setEnteredYearsError("Must be a valid year");
-      return;
-    }
 
-    setEnteredYearsError("");
+    updateDateStatus(+trimmedValue, +enteredMonths, +enteredDays);
   };
 
   return (
@@ -171,6 +237,7 @@ function Form() {
             enteredYearsError !== "" ? classes.yearInputError : ""
           }`}
           onChange={yearInputChangeHandler}
+          onKeyDown={numericInputKeyHandler}
         />
         {enteredYearsError !== "" && (
           <p className={classes.yearErrorMessage}>{enteredYearsError}</p>
