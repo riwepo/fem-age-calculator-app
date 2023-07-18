@@ -1,0 +1,8 @@
+.counter {
+  --purple-color: hsl(259, 100%, 65%);
+}
+
+.counter {
+  font-size: 3rem;
+  color: var(--purple-color);
+}

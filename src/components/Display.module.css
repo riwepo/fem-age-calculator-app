@@ -11,11 +11,13 @@
   align-items: flex-start;
 }
 
+.itemContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
 .displayItem {
   font-size: 3rem;
   color: var(--black-color);
-}
-
-.displayItem .displayItemHighlighted {
-  color: var(--purple-color);
 }

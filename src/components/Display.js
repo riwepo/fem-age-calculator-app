@@ -1,5 +1,7 @@
 import React from "react";
 
+import AnimatedUpCount from "./AnimatedUpCount";
+
 import classes from "./Display.module.css";
 
 function dateDiff(earlierDate, laterDate) {
@@ -32,35 +34,20 @@ function dateDiff(earlierDate, laterDate) {
 
 function Display({ date }) {
   const dateDiffData = date ? dateDiff(date, new Date()) : null;
-  const years = dateDiffData ? dateDiffData.years : "--";
-  const months = dateDiffData ? dateDiffData.months : "--";
-  const days = dateDiffData ? dateDiffData.days : "--";
   return (
     <div className={classes.display}>
-      <p className={classes.displayItem}>
-        <span
-          className={`${classes.displayItem} ${classes.displayItemHighlighted}`}
-        >
-          {years}
-        </span>{" "}
-        years
-      </p>
-      <p className={classes.displayItem}>
-        <span
-          className={`${classes.displayItem} ${classes.displayItemHighlighted}`}
-        >
-          {months}
-        </span>{" "}
-        months
-      </p>
-      <p className={classes.displayItem}>
-        <span
-          className={`${classes.displayItem} ${classes.displayItemHighlighted}`}
-        >
-          {days}
-        </span>{" "}
-        days
-      </p>
+      <div className={classes.itemContainer}>
+        <AnimatedUpCount target={dateDiffData?.years} />
+        <p className={classes.displayItem}>years</p>
+      </div>
+      <div className={classes.itemContainer}>
+        <AnimatedUpCount target={dateDiffData?.months} />
+        <p className={classes.displayItem}>months</p>
+      </div>
+      <div className={classes.itemContainer}>
+        <AnimatedUpCount target={dateDiffData?.days} />
+        <p className={classes.displayItem}>days</p>
+      </div>
     </div>
   );
 }
