@@ -8,6 +8,19 @@
 
 .form {
   padding: 2rem 2rem 0rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.container {
+  display: flex;
+
+  /* mobile */
+  flex-direction: column;
+
+  /* desktop */
+  /* flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 2rem; */
 }
 
 .inputsContainer {
@@ -17,7 +30,7 @@
   justify-items: stretch;
   column-gap: 1rem;
   row-gap: 0.5rem;
-  margin-bottom: 2rem;
+  width: 100%;
 }
 
 .inputsContainer label {
@@ -111,18 +124,28 @@
 .buttonContainer {
   display: flex;
   flex-direction: row;
+
+  /* mobile */
   justify-content: center;
+
+  /* desktop */
+  /* justify-content: flex-end; */
 }
 
 .button {
   border-radius: 50%;
   background-color: var(--purple-color);
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
-  transform: translate(0%, -50%);
+  width: 4rem;
+  height: 4rem;
   padding: 0.5rem;
   border: none;
+
+  /* mobile */
+  transform: translate(0%, 50%);
+
+  /* desktop */
+  /* transform: translate(0%, 110%); */
 }
 
 .button img {
@@ -138,4 +161,24 @@
 .button:disabled {
   background-color: var(--grey-color);
   cursor: default;
+}
+
+/* media query for desktop */
+@media (min-width: 768px) {
+  .container {
+    /* desktop */
+    flex-direction: row;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .buttonContainer {
+    /* desktop */
+    justify-content: flex-end;
+  }
+
+  .button {
+    /* desktop */
+    transform: translate(0%, 110%);
+  }
 }
