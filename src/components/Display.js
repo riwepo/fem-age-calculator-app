@@ -1,5 +1,7 @@
 import React from "react";
 
+import classes from "./Display.module.css";
+
 function dateDiff(earlierDate, laterDate) {
   const startYear = earlierDate.getFullYear();
   const february =
@@ -34,17 +36,32 @@ function Display({ date }) {
   const months = dateDiffData ? dateDiffData.months : "--";
   const days = dateDiffData ? dateDiffData.days : "--";
   return (
-    <>
-      <p>
-        <span>{years}</span> years
+    <div className={classes.display}>
+      <p className={classes.displayItem}>
+        <span
+          className={`${classes.displayItem} ${classes.displayItemHighlighted}`}
+        >
+          {years}
+        </span>{" "}
+        years
       </p>
-      <p>
-        <span>{months}</span> months
+      <p className={classes.displayItem}>
+        <span
+          className={`${classes.displayItem} ${classes.displayItemHighlighted}`}
+        >
+          {months}
+        </span>{" "}
+        months
       </p>
-      <p>
-        <span>{days}</span> days
+      <p className={classes.displayItem}>
+        <span
+          className={`${classes.displayItem} ${classes.displayItemHighlighted}`}
+        >
+          {days}
+        </span>{" "}
+        days
       </p>
-    </>
+    </div>
   );
 }
 
